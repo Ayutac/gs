@@ -15,6 +15,11 @@ import java.util.Set;
 public final class Recipe implements RecipeLike {
 
     /**
+     * The predicate for {@link TagLike} names.
+     */
+    public static final String PREDICATE = "recipe.";
+
+    /**
      * The recipe registry.
      */
     private static final Map<String, RecipeLike> REGISTRY = new HashMap<>();
@@ -35,7 +40,12 @@ public final class Recipe implements RecipeLike {
                   @NotNull final Collection<StuffStack> input,
                   @NotNull final Collection<StuffStack> output,
                   @NotNull final Collection<StuffStack> catalysts) {
-        this.name = Objects.requireNonNull(name);
+        if (name.startsWith(PREDICATE)) {
+            this.name = name;
+        }
+        else {
+            this.name = PREDICATE + name;
+        }
         this.input = Set.copyOf(StuffStack.simplify(input));
         this.output = Set.copyOf(StuffStack.simplify(output));
         this.catalysts = Set.copyOf(StuffStack.simplify(catalysts));

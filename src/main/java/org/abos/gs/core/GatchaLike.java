@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 /**
  * Describes a form of a gatcha machine: certain items go in, randomized items plop out.
@@ -15,9 +16,9 @@ public interface GatchaLike extends DescribableTranslatable {
 
     /**
      * Returns what is needed to offer to use this gatcha.
-     * @return an immutable view of the offering, might be empty but not {@code null}
+     * @return an immutable, simplified view of the offering, might be empty but not {@code null}
      */
-    @NotNull Collection<StuffStack> getOffering();
+    @NotNull Set<StuffStack> getOffering();
 
     /**
      * Returns the gatcha {@link Distribution Distributions}.
