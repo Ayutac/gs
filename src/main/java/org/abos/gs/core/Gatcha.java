@@ -41,12 +41,12 @@ public final class Gatcha implements GatchaLike {
 
     @Override
     public @NotNull Set<StuffStack> getOffering() {
-        return offerings
+        return offerings;
     }
 
     @Override
     public @NotNull Collection<Distribution> getDistributions() {
-        return distributions
+        return distributions;
     }
 
     @Override
