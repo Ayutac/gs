@@ -32,6 +32,7 @@ public final class Tag implements TagLike, Iterable<ItemLike> {
      * @param name the name of the tag; if it doesn't start with {@link #PREDICATE}, that will be prepended
      * @param items which items belong to the tag
      */
+    // TODO add sub tags
     public Tag(@NotNull final String name, @NotNull final Set<ItemLike> items) {
         if (name.startsWith(PREDICATE)) {
             this.name = name;

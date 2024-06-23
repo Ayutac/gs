@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+/**
+ * Test class for {@link Distribution}.
+ */
 class TestDistribution {
 
     @Test
