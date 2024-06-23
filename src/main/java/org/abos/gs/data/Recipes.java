@@ -1,4 +1,8 @@
-package org.abos.gs.core;
+package org.abos.gs.data;
+
+import org.abos.gs.core.Recipe;
+import org.abos.gs.core.RecipeLike;
+import org.abos.gs.core.StuffStack;
 
 import java.util.List;
 

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.abos.gs.core.ItemLike;
-import org.abos.gs.core.Items;
+import org.abos.gs.data.Items;
 import org.abos.gs.io.ItemSerializer;
 
 import java.io.File;

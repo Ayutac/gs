@@ -1,4 +1,7 @@
-package org.abos.gs.core;
+package org.abos.gs.data;
+
+import org.abos.gs.core.Item;
+import org.abos.gs.core.ItemLike;
 
 public interface Items {
 

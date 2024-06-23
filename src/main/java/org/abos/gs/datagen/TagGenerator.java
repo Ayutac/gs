@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.abos.gs.core.TagLike;
-import org.abos.gs.core.Tags;
+import org.abos.gs.data.Tags;
 import org.abos.gs.io.TagSerializer;
 
 import java.io.File;

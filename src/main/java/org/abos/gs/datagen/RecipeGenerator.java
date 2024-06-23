@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.abos.gs.core.RecipeLike;
-import org.abos.gs.core.Recipes;
+import org.abos.gs.data.Recipes;
 import org.abos.gs.core.TagLike;
 import org.abos.gs.io.RecipeSerializer;
 import org.abos.gs.io.StuffStackSerializer;

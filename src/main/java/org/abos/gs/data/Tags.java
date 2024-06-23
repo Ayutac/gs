@@ -1,4 +1,7 @@
-package org.abos.gs.core;
+package org.abos.gs.data;
+
+import org.abos.gs.core.Tag;
+import org.abos.gs.core.TagLike;
 
 import java.util.Set;
 
