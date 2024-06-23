@@ -2,6 +2,7 @@ package org.abos.gs.core;
 
 import org.abos.common.Named;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Range;
 
 import java.util.Set;
 
@@ -27,5 +28,11 @@ public interface RecipeLike extends Named {
      * @return an immutable, simplified view of the catalysts, might be empty but not {@code null}
      */
     @NotNull Set<StuffStack> getCatalysts();
+
+    /**
+     * Returns the duration for this recipe.
+     * @return the duration in seconds, non-negative
+     */
+    @Range(from = 0, to = Integer.MAX_VALUE) int getDuration();
 
 }

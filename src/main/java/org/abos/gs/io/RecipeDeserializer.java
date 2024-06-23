@@ -42,6 +42,6 @@ public final class RecipeDeserializer extends StdDeserializer<Recipe> {
             final JsonNode stackNode = catalystsIt.next();
             catalysts.add(jsonParser.getCodec().treeToValue(stackNode, StuffStack.class));
         }
-        return new Recipe(node.get("name").asText(), input, output, catalysts);
+        return new Recipe(node.get("name").asText(), input, output, catalysts, node.get("duration").asInt());
     }
 }

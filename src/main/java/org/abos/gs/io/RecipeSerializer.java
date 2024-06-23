@@ -36,6 +36,7 @@ public final class RecipeSerializer extends StdSerializer<Recipe> {
             jsonGenerator.writeObject(stack);
         }
         jsonGenerator.writeEndArray();
+        jsonGenerator.writeNumberField("duration", recipe.getDuration());
         jsonGenerator.writeEndObject();
     }
 }

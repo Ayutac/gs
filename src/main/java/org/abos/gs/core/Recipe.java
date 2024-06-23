@@ -1,6 +1,7 @@
 package org.abos.gs.core;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Range;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -29,6 +30,7 @@ public final class Recipe implements RecipeLike {
     private final Set<StuffStack> input;
     private final Set<StuffStack> output;
     private final Set<StuffStack> catalysts;
+    private final int duration;
 
     /**
      * Creates a new {@link Recipe}.
@@ -36,11 +38,16 @@ public final class Recipe implements RecipeLike {
      * @param input input for the recipe
      * @param output output for the recipe
      * @param catalysts necessary catalysts for the recipe
+     * @param duration how long this recipe needs, non-negative
      */
     public Recipe(@NotNull final String name,
                   @NotNull final Collection<StuffStack> input,
                   @NotNull final Collection<StuffStack> output,
-                  @NotNull final Collection<StuffStack> catalysts) {
+                  @NotNull final Collection<StuffStack> catalysts,
+                  @Range(from = 0, to = Integer.MAX_VALUE) final int duration) {
+        if (duration < 0) {
+            throw new IllegalArgumentException("Duration cannot be negative!");
+        }
         if (name.startsWith(PREDICATE)) {
             this.name = name;
         }
@@ -50,35 +57,39 @@ public final class Recipe implements RecipeLike {
         this.input = Set.copyOf(StuffStack.simplify(input));
         this.output = Set.copyOf(StuffStack.simplify(output));
         this.catalysts = Set.copyOf(StuffStack.simplify(catalysts));
+        this.duration = duration;
     }
 
     /**
-     * @see #Recipe(String, Collection, Collection, Collection)
+     * @see #Recipe(String, Collection, Collection, Collection, int)
      */
     public Recipe(@NotNull final String name,
                   @NotNull final Collection<StuffStack> input,
                   @NotNull final Collection<StuffStack> output,
-                  @NotNull final StuffStack catalyst) {
-        this(name, input, output, List.of(catalyst));
+                  @NotNull final StuffStack catalyst,
+                  @Range(from = 0, to = Integer.MAX_VALUE) final int duration) {
+        this(name, input, output, List.of(catalyst), duration);
     }
 
     /**
-     * @see #Recipe(String, Collection, Collection, Collection)
+     * @see #Recipe(String, Collection, Collection, Collection, int)
      */
     public Recipe(@NotNull final String name,
                   @NotNull final Collection<StuffStack> input,
                   @NotNull final StuffStack output,
-                  @NotNull final StuffStack catalyst) {
-        this(name, input, List.of(output), catalyst);
+                  @NotNull final StuffStack catalyst,
+                  @Range(from = 0, to = Integer.MAX_VALUE) final int duration) {
+        this(name, input, List.of(output), catalyst, duration);
     }
 
     /**
-     * @see #Recipe(String, Collection, Collection, Collection)
+     * @see #Recipe(String, Collection, Collection, Collection, int)
      */
     public Recipe(@NotNull final String name,
                   @NotNull final Collection<StuffStack> input,
-                  @NotNull final StuffStack output) {
-        this(name, input, List.of(output), List.of());
+                  @NotNull final StuffStack output,
+                  @Range(from = 0, to = Integer.MAX_VALUE) final int duration) {
+        this(name, input, List.of(output), List.of(), duration);
     }
 
     @Override
@@ -94,6 +105,11 @@ public final class Recipe implements RecipeLike {
     @Override
     public @NotNull Set<StuffStack> getCatalysts() {
         return catalysts;
+    }
+
+    @Override
+    public int getDuration() {
+        return duration;
     }
 
     @Override
