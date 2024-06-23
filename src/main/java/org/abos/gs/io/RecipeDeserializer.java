@@ -34,13 +34,13 @@ public final class RecipeDeserializer extends StdDeserializer<Recipe> {
         final Iterator<JsonNode> outputIt = node.get("output").elements();
         while (outputIt.hasNext()) {
             final JsonNode stackNode = outputIt.next();
-            input.add(jsonParser.getCodec().treeToValue(stackNode, StuffStack.class));
+            output.add(jsonParser.getCodec().treeToValue(stackNode, StuffStack.class));
         }
         final Collection<StuffStack> catalysts = new LinkedList<>();
         final Iterator<JsonNode> catalystsIt = node.get("catalysts").elements();
         while (catalystsIt.hasNext()) {
             final JsonNode stackNode = catalystsIt.next();
-            input.add(jsonParser.getCodec().treeToValue(stackNode, StuffStack.class));
+            catalysts.add(jsonParser.getCodec().treeToValue(stackNode, StuffStack.class));
         }
         return new Recipe(node.get("name").asText(), input, output, catalysts);
     }
