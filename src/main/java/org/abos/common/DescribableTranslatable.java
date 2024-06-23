@@ -1,5 +1,7 @@
 package org.abos.common;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ResourceBundle;
 
 /**
@@ -11,7 +13,8 @@ public interface DescribableTranslatable extends Describable, Translatable {
      * Returns the translation of this object's description.
      * @return the translation of this object's description, might be empty but not {@code null}
      */
-    default String getDescriptionTranslation(ResourceBundle rb) {
+    @NotNull
+    default String getDescriptionTranslation(@NotNull ResourceBundle rb) {
         return rb.getString(getDescription());
     }
 

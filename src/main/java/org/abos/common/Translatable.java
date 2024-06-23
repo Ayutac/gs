@@ -1,5 +1,7 @@
 package org.abos.common;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ResourceBundle;
 
 /**
@@ -11,7 +13,8 @@ public interface Translatable extends Named {
      * Returns the translation of this object
      * @return the translation of this object, not {@code null}
      */
-    default String getTranslation(ResourceBundle rb) {
+    @NotNull
+    default String getTranslation(@NotNull ResourceBundle rb) {
         return rb.getString(getName());
     }
 
