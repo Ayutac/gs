@@ -1,9 +1,6 @@
 package org.abos.gs.core;
 
 import org.abos.common.DescribableTranslatable;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.ResourceBundle;
 
 /**
  * Describes an item. Implementations of this interface should be immutable.
