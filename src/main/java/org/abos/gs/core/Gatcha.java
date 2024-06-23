@@ -26,9 +26,18 @@ public final class Gatcha implements GatchaLike {
     private final Set<StuffStack> offerings;
     private final Collection<Distribution> distributions;
 
+    /**
+     * Creates a new {@link Gatcha} instance.
+     * @param name the translatable name of this gatcha
+     * @param offerings what must be offered to pull from this gatcha, may be empty, but not {@code null} or contain {@code null}
+     * @param distributions the distributions that are pulled from, may not be empty, {@code null} or contain {@code null}
+     */
     public Gatcha(@NotNull final String name,
                   @NotNull final Collection<StuffStack> offerings,
                   @NotNull final Collection<Distribution> distributions) {
+        if (distributions.isEmpty()) {
+            throw new IllegalArgumentException("At least one distribution must be specified!");
+        }
         if (name.startsWith(PREDICATE)) {
             this.name = name;
         }
@@ -39,8 +48,17 @@ public final class Gatcha implements GatchaLike {
         this.distributions = List.copyOf(distributions);
     }
 
+    /**
+     * @see #Gatcha(String, Collection, Collection)
+     */
+    public Gatcha(@NotNull final String name,
+                  @NotNull final StuffStack offerings,
+                  @NotNull final Collection<Distribution> distributions) {
+        this(name, List.of(offerings), distributions);
+    }
+
     @Override
-    public @NotNull Set<StuffStack> getOffering() {
+    public @NotNull Set<StuffStack> getOfferings() {
         return offerings;
     }
 

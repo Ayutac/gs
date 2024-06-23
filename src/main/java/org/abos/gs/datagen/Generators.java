@@ -18,6 +18,7 @@ public final class Generators {
         new ItemGenerator().run();
         new TagGenerator().run();
         new RecipeGenerator().run();
+        new GatchaGenerator().run();
     }
 
 }

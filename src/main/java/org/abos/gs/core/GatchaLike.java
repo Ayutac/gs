@@ -18,7 +18,7 @@ public interface GatchaLike extends DescribableTranslatable {
      * Returns what is needed to offer to use this gatcha.
      * @return an immutable, simplified view of the offering, might be empty but not {@code null}
      */
-    @NotNull Set<StuffStack> getOffering();
+    @NotNull Set<StuffStack> getOfferings();
 
     /**
      * Returns the gatcha {@link Distribution Distributions}.
