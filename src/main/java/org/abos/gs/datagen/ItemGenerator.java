@@ -3,7 +3,6 @@ package org.abos.gs.datagen;
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import org.abos.gs.core.Item;
 import org.abos.gs.core.ItemLike;
 import org.abos.gs.core.Items;
 import org.abos.gs.io.ItemSerializer;
@@ -12,8 +11,6 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.nio.file.Path;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Creates all {@link org.abos.gs.core.ItemLike} files.
