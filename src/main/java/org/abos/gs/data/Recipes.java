@@ -13,6 +13,26 @@ public interface Recipes {
             List.of(new StuffStack(Items.BIG_SHARP_STONE)),
             List.of(),
             3);
+    RecipeLike BOW_DRILL = new Recipe("bow_drill",
+            List.of(new StuffStack(Items.PLANT_ROPE), new StuffStack(Items.STICK, 2)),
+            List.of(new StuffStack(Items.BOW_DRILL)),
+            List.of(),
+            2);
+    RecipeLike DRIED_LEAF = new Recipe("dried_leaf",
+            List.of(new StuffStack(Items.LEAF)),
+            List.of(new StuffStack(Items.DRIED_LEAF)),
+            List.of(new StuffStack(Tags.BOARDS)),
+            4);
+    RecipeLike DRIED_MOSS = new Recipe("dried_moss",
+            List.of(new StuffStack(Items.MOSS)),
+            List.of(new StuffStack(Items.DRIED_MOSS)),
+            List.of(new StuffStack(Tags.BOARDS)),
+            8);
+    RecipeLike PLANT_ROPE = new Recipe("plant_rope",
+            List.of(new StuffStack(Items.LONG_GRASS_BLADE, 5)),
+            List.of(new StuffStack(Items.PLANT_ROPE)),
+            List.of(),
+            3);
     RecipeLike SMALL_SHARP_STONE = new Recipe("small_sharp_stone",
             List.of(new StuffStack(Items.SMALL_STONE, 2)),
             List.of(new StuffStack(Items.SMALL_SHARP_STONE)),
@@ -43,6 +63,26 @@ public interface Recipes {
             List.of(new StuffStack(Items.STONE_PICKAXE)),
             List.of(),
             15);
+    RecipeLike STRIPPED_OLD_LOG = new Recipe("stripped_old_log",
+            List.of(new StuffStack(Items.OLD_LOG)),
+            List.of(new StuffStack(Items.STRIPPED_OLD_LOG), new StuffStack(Items.BARK, 4)),
+            List.of(new StuffStack(Tags.AXES)),
+            4);
+    RecipeLike STRIPPED_YOUNG_LOG = new Recipe("stripped_young_log",
+            List.of(new StuffStack(Items.YOUNG_LOG)),
+            List.of(new StuffStack(Items.STRIPPED_YOUNG_LOG), new StuffStack(Items.BARK, 4)),
+            List.of(new StuffStack(Tags.AXES)),
+            4);
+    RecipeLike WOODEN_BOARD = new Recipe("wooden_board",
+            List.of(new StuffStack(Tags.STRIPPED_LOGS)),
+            List.of(new StuffStack(Items.WOODEN_BOARD), new StuffStack(Items.WOODEN_ROD, 2)),
+            List.of(new StuffStack(Tags.KNIFES), new StuffStack(Tags.AXES)),
+            10);
+    RecipeLike WOODEN_BOWL = new Recipe("wooden_bowl",
+            List.of(new StuffStack(Tags.STRIPPED_LOGS)),
+            List.of(new StuffStack(Items.WOODEN_BOWL, 2)),
+            List.of(new StuffStack(Tags.KNIFES), new StuffStack(Tags.AXES)),
+            10);
     RecipeLike WOODEN_ROD = new Recipe("wooden_rod",
             List.of(new StuffStack(Items.BRANCH)),
             List.of(new StuffStack(Items.WOODEN_ROD)),

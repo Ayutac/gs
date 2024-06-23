@@ -16,6 +16,8 @@ class TestGatcha {
     public void testRoll() {
         Collection<StuffStack> rollResult = Gatchas.FOREST_FORAGE.roll(new Random());
         Assertions.assertTrue(rollResult.size() <= 5);
+        rollResult = Gatchas.FOREST_TIMBER.roll(new Random());
+        Assertions.assertTrue(rollResult.size() >= 3);
         System.out.println(rollResult);
     }
 

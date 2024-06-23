@@ -13,11 +13,15 @@ public interface Gatchas {
     GatchaLike FOREST_SCAVENGE = new Gatcha("forest_scavenge",
             List.of(),
             List.of(new Distribution(List.of(
-                    new DistributionEntry(new StuffStack(Items.BIG_STONE), 3),
-                    new DistributionEntry(new StuffStack(Items.BRANCH), 5),
-                    new DistributionEntry(new StuffStack(Items.LONG_GRASS_BLADE, 2), 5),
-                    new DistributionEntry(new StuffStack(Items.SMALL_STONE), 10),
-                    new DistributionEntry(new StuffStack(Items.STICK), 10)
+                    new DistributionEntry(new StuffStack(Items.BARK), 4),
+                    new DistributionEntry(new StuffStack(Items.BIG_STONE), 6),
+                    new DistributionEntry(new StuffStack(Items.BRANCH), 10),
+                    new DistributionEntry(new StuffStack(Items.DRIED_LEAF), 1),
+                    new DistributionEntry(new StuffStack(Items.LEAF, 3), 2),
+                    new DistributionEntry(new StuffStack(Items.MOSS), 2),
+                    new DistributionEntry(new StuffStack(Items.LONG_GRASS_BLADE, 2), 10),
+                    new DistributionEntry(new StuffStack(Items.SMALL_STONE), 20),
+                    new DistributionEntry(new StuffStack(Items.STICK), 20)
             ), 10)));
 
     GatchaLike FOREST_FORAGE = new Gatcha("forest_forage",
@@ -41,6 +45,22 @@ public interface Gatchas {
                     new DistributionEntry(new StuffStack(Items.ROWANBERRY, 6), 5),
                     new DistributionEntry(new StuffStack(Items.STRAWBERRY, 2), 5),
                     new DistributionEntry(new StuffStack(Items.WALNUT, 3), 4)
-            ), 5)));
+                ), 5)));
 
+    GatchaLike FOREST_TIMBER = new Gatcha("forest_timber",
+            List.of(new StuffStack(Items.STONE_AXE)),
+            List.of(new Distribution(List.of(
+                    new DistributionEntry(new StuffStack(Items.YOUNG_LOG, 5), 9),
+                    new DistributionEntry(new StuffStack(Items.OLD_LOG, 5), 1)
+                ), 1), new Distribution(List.of(
+                    new DistributionEntry(new StuffStack(Items.BRANCH, 2), 1),
+                    new DistributionEntry(new StuffStack(Items.STICK, 6), 1)
+                ), 5), new Distribution(List.of(
+                    new DistributionEntry(new StuffStack(Items.LEAF, 3), 1),
+                    new DistributionEntry(new StuffStack(Items.LEAF, 6), 1)
+                ), 3), new Distribution(List.of(
+                    new DistributionEntry(new StuffStack(Items.STONE_AXE), 7),
+                    new DistributionEntry(new StuffStack(Items.BIG_SHARP_STONE), 2),
+                    new DistributionEntry(new StuffStack(Items.STONE_AXE, 0), 1)
+                ), 1)));
 }
