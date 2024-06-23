@@ -28,6 +28,13 @@ public record StuffStack(Stuff stuff, Integer count) implements Translatable {
         this.count = count;
     }
 
+    /**
+     * @see StuffStack
+     */
+    public StuffStack(@NotNull final Stuff stuff) {
+        this(stuff, 1);
+    }
+
     @Override
     public @NotNull String getName() {
         return String.format("%s (%d)", stuff.getName(), count);

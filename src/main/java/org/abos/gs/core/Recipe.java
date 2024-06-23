@@ -4,6 +4,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -49,6 +50,35 @@ public final class Recipe implements RecipeLike {
         this.input = Set.copyOf(StuffStack.simplify(input));
         this.output = Set.copyOf(StuffStack.simplify(output));
         this.catalysts = Set.copyOf(StuffStack.simplify(catalysts));
+    }
+
+    /**
+     * @see #Recipe(String, Collection, Collection, Collection)
+     */
+    public Recipe(@NotNull final String name,
+                  @NotNull final Collection<StuffStack> input,
+                  @NotNull final Collection<StuffStack> output,
+                  @NotNull final StuffStack catalyst) {
+        this(name, input, output, List.of(catalyst));
+    }
+
+    /**
+     * @see #Recipe(String, Collection, Collection, Collection)
+     */
+    public Recipe(@NotNull final String name,
+                  @NotNull final Collection<StuffStack> input,
+                  @NotNull final StuffStack output,
+                  @NotNull final StuffStack catalyst) {
+        this(name, input, List.of(output), catalyst);
+    }
+
+    /**
+     * @see #Recipe(String, Collection, Collection, Collection)
+     */
+    public Recipe(@NotNull final String name,
+                  @NotNull final Collection<StuffStack> input,
+                  @NotNull final StuffStack output) {
+        this(name, input, List.of(output), List.of());
     }
 
     @Override

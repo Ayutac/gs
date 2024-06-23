@@ -17,6 +17,7 @@ public final class Generators {
     public static void main(String[] args) {
         new ItemGenerator().run();
         new TagGenerator().run();
+        new RecipeGenerator().run();
     }
 
 }
