@@ -14,6 +14,11 @@ import java.util.Optional;
 public final class Item implements ItemLike {
 
     /**
+     * The predicate for {@link ItemLike} names.
+     */
+    public static final String PREDICATE = "item.";
+
+    /**
      * The item registry.
      */
     private static final Map<String, ItemLike> REGISTRY = new HashMap<>();
@@ -21,11 +26,21 @@ public final class Item implements ItemLike {
     private final String name;
     private final int rarity;
 
+    /**
+     * Creates a new {@link Item}.
+     * @param name the name of the item; if it doesn't start with {@link #PREDICATE}, that will be prepended
+     * @param rarity the rarity of the item, not negative
+     */
     public Item(@NotNull final String name, @Range(from = 0, to = Integer.MAX_VALUE) final int rarity) {
         if (rarity < 0) {
             throw new IllegalArgumentException("Rarity cannot be negative!");
         }
-        this.name = Objects.requireNonNull(name);
+        if (name.startsWith(PREDICATE)) {
+            this.name = name;
+        }
+        else {
+            this.name = PREDICATE + name;
+        }
         this.rarity = rarity;
     }
 

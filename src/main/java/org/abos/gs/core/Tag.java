@@ -14,6 +14,11 @@ import java.util.Set;
 public final class Tag implements TagLike {
 
     /**
+     * The predicate for {@link TagLike} names.
+     */
+    public static final String PREDICATE = "tag.";
+
+    /**
      * The tag registry.
      */
     private static final Map<String, TagLike> REGISTRY = new HashMap<>();
@@ -23,11 +28,16 @@ public final class Tag implements TagLike {
 
     /**
      * Creates a new {@link Tag}
-     * @param name the name of the tag
+     * @param name the name of the tag; if it doesn't start with {@link #PREDICATE}, that will be prepended
      * @param items which items belong to the tag
      */
     public Tag(@NotNull final String name, @NotNull final Set<ItemLike> items) {
-        this.name = Objects.requireNonNull(name);
+        if (name.startsWith(PREDICATE)) {
+            this.name = name;
+        }
+        else {
+            this.name = PREDICATE + name;
+        }
         this.items = Set.copyOf(items);
     }
 

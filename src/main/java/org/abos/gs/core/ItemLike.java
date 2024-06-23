@@ -17,8 +17,4 @@ public interface ItemLike extends Stuff, DescribableTranslatable {
      */
     int getRarity();
 
-    @Override
-    default @NotNull String getTranslation(@NotNull ResourceBundle rb) {
-        return rb.getString(String.format("item.%s", getName()));
-    }
 }
