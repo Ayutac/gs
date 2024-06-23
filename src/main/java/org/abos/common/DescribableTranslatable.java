@@ -9,6 +9,12 @@ import java.util.ResourceBundle;
  */
 public interface DescribableTranslatable extends Describable, Translatable {
 
+    @Override
+    @NotNull
+    default String getDescription() {
+        return getName() + ".desc";
+    }
+
     /**
      * Returns the translation of this object's description.
      * @return the translation of this object's description, might be empty but not {@code null}
