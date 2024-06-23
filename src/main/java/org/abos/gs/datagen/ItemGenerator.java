@@ -1,14 +1,15 @@
 package org.abos.gs.datagen;
 
+import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.abos.gs.core.Item;
 import org.abos.gs.core.ItemLike;
+import org.abos.gs.io.ItemSerializer;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,7 +18,14 @@ import java.util.List;
  */
 public final class ItemGenerator implements Runnable {
 
-    private final ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper;
+
+    public ItemGenerator() {
+        mapper = new ObjectMapper();
+        final SimpleModule module = new SimpleModule("CustomSerializer", new Version(1, 0, 0, null, null, null));
+        module.addSerializer(new ItemSerializer());
+        mapper.registerModule(module);
+    }
 
     @Override
     public void run() {
@@ -27,7 +35,11 @@ public final class ItemGenerator implements Runnable {
             throw new IllegalStateException("Item directory couldn't be created!");
         }
         // add items
-        items.add(new Item("test", 0));
+        items.add(new Item("stick", 0));
+        items.add(new Item("small_stone", 0));
+        items.add(new Item("big_stone", 0));
+        items.add(new Item("small_sharp_stone", 1));
+        items.add(new Item("big_sharp_stone", 1));
         // persist items
         try {
             for (final ItemLike item : items) {
