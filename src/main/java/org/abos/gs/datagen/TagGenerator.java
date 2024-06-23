@@ -3,8 +3,8 @@ package org.abos.gs.datagen;
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import org.abos.gs.core.Items;
 import org.abos.gs.core.TagLike;
+import org.abos.gs.core.Tags;
 import org.abos.gs.io.TagSerializer;
 
 import java.io.File;
@@ -34,7 +34,7 @@ public final class TagGenerator implements Runnable {
         }
         // persist items
         try {
-            for (final Field tagField : Items.class.getFields()) {
+            for (final Field tagField : Tags.class.getFields()) {
                 final TagLike tag = (TagLike)tagField.get(null);
                 final File file = resourceLocation.resolve(tag.getName() + Generators.FILE_SUFFIX).toFile();
                 mapper.writerWithDefaultPrettyPrinter().writeValue(file, tag);
