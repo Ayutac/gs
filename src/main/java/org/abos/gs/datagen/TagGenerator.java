@@ -28,7 +28,7 @@ public final class TagGenerator implements Runnable {
 
     @Override
     public void run() {
-        final Path resourceLocation = Generators.getResourceLocation().resolve("tags");
+        final Path resourceLocation = Generators.getResourceLocation().resolve("generated").resolve("tags");
         if (!resourceLocation.toFile().isDirectory() && !resourceLocation.toFile().mkdirs()) {
             throw new IllegalStateException("Tag directory couldn't be created!");
         }

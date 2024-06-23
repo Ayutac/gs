@@ -31,7 +31,7 @@ public final class RecipeGenerator implements Runnable {
 
     @Override
     public void run() {
-        final Path resourceLocation = Generators.getResourceLocation().resolve("recipes");
+        final Path resourceLocation = Generators.getResourceLocation().resolve("generated").resolve("recipes");
         if (!resourceLocation.toFile().isDirectory() && !resourceLocation.toFile().mkdirs()) {
             throw new IllegalStateException("Recipe directory couldn't be created!");
         }

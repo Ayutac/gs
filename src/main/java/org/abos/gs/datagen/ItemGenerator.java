@@ -28,7 +28,7 @@ public final class ItemGenerator implements Runnable {
 
     @Override
     public void run() {
-        final Path resourceLocation = Generators.getResourceLocation().resolve("items");
+        final Path resourceLocation = Generators.getResourceLocation().resolve("generated").resolve("items");
         if (!resourceLocation.toFile().isDirectory() && !resourceLocation.toFile().mkdirs()) {
             throw new IllegalStateException("Item directory couldn't be created!");
         }

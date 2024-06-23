@@ -33,7 +33,7 @@ public final class GatchaGenerator implements Runnable {
 
     @Override
     public void run() {
-        final Path resourceLocation = Generators.getResourceLocation().resolve("gatcha");
+        final Path resourceLocation = Generators.getResourceLocation().resolve("generated").resolve("gatcha");
         if (!resourceLocation.toFile().isDirectory() && !resourceLocation.toFile().mkdirs()) {
             throw new IllegalStateException("Gatcha directory couldn't be created!");
         }
