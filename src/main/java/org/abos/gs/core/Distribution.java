@@ -44,7 +44,7 @@ public final class Distribution {
         }
     }
 
-    public @NotNull StuffStack getDrawResult(final int randomInt) {
+    public @NotNull StuffStack drawResult(final int randomInt) {
         int index = 0;
         if (randomInt >= weightSum) {
             index = entries.size()-1;

@@ -33,7 +33,7 @@ public interface GatchaLike extends DescribableTranslatable {
         final List<StuffStack> rollResults = new LinkedList<>();
         for (final Distribution dist : getDistributions()) {
             for (int roll = 0; roll < dist.getRolls(); roll++) {
-                rollResults.add(dist.getDrawResult(random.nextInt(dist.getWeightSum())));
+                rollResults.add(dist.drawResult(random.nextInt(dist.getWeightSum())));
             }
         }
         return StuffStack.simplify(rollResults);
