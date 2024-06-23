@@ -13,8 +13,7 @@ public interface Translatable extends Named {
      * Returns the translation of this object
      * @return the translation of this object, not {@code null}
      */
-    @NotNull
-    default String getTranslation(@NotNull ResourceBundle rb) {
+    default @NotNull String getTranslation(@NotNull ResourceBundle rb) {
         return rb.getString(getName());
     }
 

@@ -11,7 +11,6 @@ public interface Named {
      * Returns the name of this object.
      * @return the name of this object, not {@code null}
      */
-    @NotNull
-    String getName();
+    @NotNull String getName();
 
 }

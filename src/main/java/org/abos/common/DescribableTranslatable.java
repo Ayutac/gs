@@ -10,8 +10,7 @@ import java.util.ResourceBundle;
 public interface DescribableTranslatable extends Describable, Translatable {
 
     @Override
-    @NotNull
-    default String getDescription() {
+    default @NotNull String getDescription() {
         return getName() + ".desc";
     }
 
@@ -19,8 +18,7 @@ public interface DescribableTranslatable extends Describable, Translatable {
      * Returns the translation of this object's description.
      * @return the translation of this object's description, might be empty but not {@code null}
      */
-    @NotNull
-    default String getDescriptionTranslation(@NotNull ResourceBundle rb) {
+    default @NotNull String getDescriptionTranslation(@NotNull ResourceBundle rb) {
         return rb.getString(getDescription());
     }
 
