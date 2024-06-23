@@ -19,7 +19,7 @@ import java.util.Set;
 public final class TagDeserializer extends StdDeserializer<Tag> {
 
     public TagDeserializer() {
-        super(Item.class);
+        super(Tag.class);
     }
 
     @Override
