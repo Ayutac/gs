@@ -6,7 +6,9 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.abos.gs.core.Item;
 import org.abos.gs.core.ItemLike;
 import org.abos.gs.core.Items;
+import org.abos.gs.core.TagLike;
 import org.abos.gs.io.ItemSerializer;
+import org.abos.gs.io.TagSerializer;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,31 +18,31 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Creates all {@link org.abos.gs.core.ItemLike} files.
+ * Creates all {@link ItemLike} files.
  */
-public final class ItemGenerator implements Runnable {
+public final class TagGenerator implements Runnable {
 
     private final ObjectMapper mapper;
 
-    public ItemGenerator() {
+    public TagGenerator() {
         mapper = new ObjectMapper();
         final SimpleModule module = new SimpleModule("CustomSerializer", new Version(1, 0, 0, null, null, null));
-        module.addSerializer(new ItemSerializer());
+        module.addSerializer(new TagSerializer());
         mapper.registerModule(module);
     }
 
     @Override
     public void run() {
-        final Path resourceLocation = Generators.getResourceLocation().resolve("items");
+        final Path resourceLocation = Generators.getResourceLocation().resolve("tags");
         if (!resourceLocation.toFile().isDirectory() && !resourceLocation.toFile().mkdirs()) {
-            throw new IllegalStateException("Item directory couldn't be created!");
+            throw new IllegalStateException("Tag directory couldn't be created!");
         }
         // persist items
         try {
-            for (final Field itemField : Items.class.getFields()) {
-                final ItemLike item = (ItemLike)itemField.get(null);
-                final File file = resourceLocation.resolve(item.getName() + Generators.FILE_SUFFIX).toFile();
-                mapper.writerWithDefaultPrettyPrinter().writeValue(file, item);
+            for (final Field tagField : Items.class.getFields()) {
+                final TagLike tag = (TagLike)tagField.get(null);
+                final File file = resourceLocation.resolve(tag.getName() + Generators.FILE_SUFFIX).toFile();
+                mapper.writerWithDefaultPrettyPrinter().writeValue(file, tag);
             }
         } catch (final IOException | IllegalAccessException ex) {
             throw new IllegalStateException(ex);

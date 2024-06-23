@@ -3,6 +3,7 @@ package org.abos.gs.core;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -11,7 +12,7 @@ import java.util.Set;
 /**
  * Implementation of the {@link TagLike} interface via a set. This class is immutable.
  */
-public final class Tag implements TagLike {
+public final class Tag implements TagLike, Iterable<ItemLike> {
 
     /**
      * The predicate for {@link TagLike} names.
@@ -44,6 +45,11 @@ public final class Tag implements TagLike {
     @Override
     public boolean test(ItemLike itemLike) {
         return items.contains(itemLike);
+    }
+
+    @Override
+    public @NotNull Iterator<ItemLike> iterator() {
+        return items.iterator();
     }
 
     @Override
@@ -95,4 +101,5 @@ public final class Tag implements TagLike {
         }
         return Optional.of(result);
     }
+
 }
