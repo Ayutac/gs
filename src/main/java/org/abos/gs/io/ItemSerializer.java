@@ -7,6 +7,9 @@ import org.abos.gs.core.Item;
 
 import java.io.IOException;
 
+/**
+ * Serializer for {@link Item} class.
+ */
 public final class ItemSerializer extends StdSerializer<Item> {
 
     public ItemSerializer() {

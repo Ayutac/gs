@@ -9,6 +9,9 @@ import org.abos.gs.core.Item;
 
 import java.io.IOException;
 
+/**
+ * Deserializer for {@link Item} class. Should always work.
+ */
 public final class ItemDeserializer extends StdDeserializer<Item> {
 
     public ItemDeserializer() {
