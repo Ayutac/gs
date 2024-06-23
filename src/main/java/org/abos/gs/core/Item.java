@@ -74,6 +74,7 @@ public final class Item implements ItemLike {
     /**
      * Looks up an {@link ItemLike} from its name.
      * @param name the name to look for, not {@code null}
+     * @return an {@link Optional} containing the item if it had been registered before, else empty
      */
     public static Optional<ItemLike> lookup(@NotNull final String name) {
         final ItemLike result = REGISTRY.get(Objects.requireNonNull(name));

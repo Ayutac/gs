@@ -63,7 +63,7 @@ public final class Tag implements TagLike {
     }
 
     /**
-     * Registers an {@link TagLike}.
+     * Registers a {@link TagLike}.
      * @param tag the tag to register, not {@code null}
      */
     public static void register(@NotNull final TagLike tag) throws IllegalStateException {
@@ -74,8 +74,9 @@ public final class Tag implements TagLike {
     }
 
     /**
-     * Looks up an {@link TagLike} from its name.
+     * Looks up a {@link TagLike} from its name.
      * @param name the name to look for, not {@code null}
+     * @return an {@link Optional} containing the tag if it had been registered before, else empty
      */
     public static Optional<TagLike> lookup(@NotNull final String name) {
         final TagLike result = REGISTRY.get(Objects.requireNonNull(name));
