@@ -25,4 +25,12 @@ public class Player implements Named, Serializable {
     public @NotNull String getName() {
         return name;
     }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public Inventory getCraftingInv() {
+        return craftingInv;
+    }
 }

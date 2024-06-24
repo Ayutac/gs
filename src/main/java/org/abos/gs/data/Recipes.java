@@ -26,12 +26,12 @@ public interface Recipes {
     RecipeLike DEER_BUTCHER = new Recipe("deer_butcher",
             List.of(new StuffStack(Items.DEER_CARCASS)),
             List.of(new StuffStack(Items.RAW_VENISON, 3), new StuffStack(Items.DEER_HIDE), new StuffStack(Items.BONE, 5), new StuffStack(Items.DEER_SKULL), new StuffStack(Items.SINEW, 8), new StuffStack(Items.HOOF, 4)),
-            List.of(new StuffStack(Tags.KNIFES), new StuffStack(Tags.AXES)),
+            List.of(new StuffStack(Tags.KNIVES), new StuffStack(Tags.AXES)),
             15);
     RecipeLike DEER_SNARE = new Recipe("deer_snare",
             List.of(new StuffStack(Tags.ROPES), new StuffStack(Items.STICK, 2)),
             List.of(new StuffStack(Items.DEER_SNARE)),
-            List.of(new StuffStack(Tags.KNIFES)),
+            List.of(new StuffStack(Tags.KNIVES)),
             1);
     RecipeLike DRIED_LEAF = new Recipe("dried_leaf",
             List.of(new StuffStack(Items.LEAF)),
@@ -86,7 +86,7 @@ public interface Recipes {
     RecipeLike SHARP_STICK = new Recipe("sharp_stick",
             List.of(new StuffStack(Items.STICK)),
             List.of(new StuffStack(Items.SHARP_STICK)),
-            List.of(new StuffStack(Tags.KNIFES)),
+            List.of(new StuffStack(Tags.KNIVES)),
             1);
     RecipeLike STONE_AXE = new Recipe("stone_axe",
             List.of(new StuffStack(Items.BIG_SHARP_STONE), new StuffStack(Items.WOODEN_ROD), new StuffStack(Items.LONG_GRASS_BLADE, 4)),
@@ -116,17 +116,17 @@ public interface Recipes {
     RecipeLike WOODEN_BOARD = new Recipe("wooden_board",
             List.of(new StuffStack(Tags.STRIPPED_LOGS)),
             List.of(new StuffStack(Items.WOODEN_BOARD), new StuffStack(Items.WOODEN_ROD, 2)),
-            List.of(new StuffStack(Tags.KNIFES), new StuffStack(Tags.AXES)),
+            List.of(new StuffStack(Tags.KNIVES), new StuffStack(Tags.AXES)),
             10);
     RecipeLike WOODEN_BOWL = new Recipe("wooden_bowl",
             List.of(new StuffStack(Tags.STRIPPED_LOGS)),
             List.of(new StuffStack(Items.WOODEN_BOWL, 2)),
-            List.of(new StuffStack(Tags.KNIFES), new StuffStack(Tags.AXES)),
+            List.of(new StuffStack(Tags.KNIVES), new StuffStack(Tags.AXES)),
             10);
     RecipeLike WOODEN_ROD = new Recipe("wooden_rod",
             List.of(new StuffStack(Items.BRANCH)),
             List.of(new StuffStack(Items.WOODEN_ROD)),
-            List.of(new StuffStack(Tags.KNIFES)),
+            List.of(new StuffStack(Tags.KNIVES)),
             3);
     RecipeLike WOODEN_TOKEN = new Recipe("wooden_token",
             List.of(new StuffStack(Items.STICK, 2), new StuffStack(Items.SMALL_STONE), new StuffStack(Items.LONG_GRASS_BLADE, 4)),

@@ -23,7 +23,7 @@ public class Inventory implements Serializable, Cloneable {
 
     /**
      * Returns an unsorted view of this inventory.
-     * @return a mutable, unsorted view not backed by this inventory
+     * @return a mutable, unsorted, simplified view not backed by this inventory
      */
     public @NotNull List<StuffStack> viewContent() {
         final List<StuffStack> result = new ArrayList<>(items.size());
