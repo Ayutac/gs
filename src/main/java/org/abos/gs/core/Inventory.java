@@ -79,7 +79,7 @@ public class Inventory implements Serializable {
             }
             else if (entry.getValue() < 0) {
                 // impossible to reach
-                throw new AssertionError("Value cannot be negative at this moment.")
+                throw new AssertionError("Value cannot be negative at this moment.");
             }
             else {
                 items.put(entry.getKey(), entry.getValue());
