@@ -5,7 +5,6 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import org.abos.gs.gui.Gui;
@@ -19,8 +18,8 @@ public final class PlayerNameDialog extends Dialog<String> {
 
     public PlayerNameDialog(@NotNull final Gui gui) {
         this.gui = Objects.requireNonNull(gui);
-        setTitle("Choose Player Name!");
-        final TextField textField = new TextField();
+        setTitle(this.gui.translate("gui.player_name_title"));
+        final TextField textField = new TextField(this.gui.translate("gui.player_name"));
         textField.setAlignment(Pos.CENTER);
         getDialogPane().getButtonTypes().add(ButtonType.OK);
         final Button confirmBtn = (Button) getDialogPane().lookupButton(ButtonType.OK);

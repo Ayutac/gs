@@ -17,9 +17,11 @@ public final class MainMenu extends StackPane {
     public MainMenu(@NotNull final Gui gui) {
         this.gui = Objects.requireNonNull(gui);
         final BorderPane borderPane = new BorderPane();
-        final Button newGame = new Button(gui.getResourceBundle().getString("gui.new_game"));
-        newGame.setOnMouseClicked(event -> gui.newGame());
-        final Button exit = new Button(gui.getResourceBundle().getString("gui.exit"));
+        final Button newGame = new Button(this.gui.translate("gui.new_game"));
+        newGame.setMinWidth(100);
+        newGame.setOnMouseClicked(event -> this.gui.newGame());
+        final Button exit = new Button(this.gui.translate("gui.exit"));
+        exit.setMinWidth(100);
         exit.setOnMouseClicked(event -> Platform.exit());
         final VBox buttons = new VBox(newGame, exit);
         borderPane.setRight(buttons);
