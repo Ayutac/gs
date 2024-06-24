@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public class Inventory implements Serializable {
+public class Inventory implements Serializable, Cloneable {
 
     @Serial
     private static final long serialVersionUID = 4982375432L;
@@ -53,6 +53,7 @@ public class Inventory implements Serializable {
 
     private Optional<Map<String, Integer>> canSubtract(@NotNull final Iterable<StuffStack> stacks) {
         final Map<String, Integer> diffMap = new HashMap<>();
+        // we need the diffMap because in the iterable there could be several stacks of the same stuff
         for (final StuffStack stack : stacks) {
             final Integer oldValue = diffMap.getOrDefault(stack.stuff().getName(), items.get(stack.stuff().getName()));
             if (oldValue == null) {
@@ -92,4 +93,40 @@ public class Inventory implements Serializable {
         return subtract(List.of(stack));
     }
 
+    public @NotNull Optional<ItemLike> matchTag(@NotNull final TagLike tag) {
+        for (final String itemName : items.keySet()) {
+            final ItemLike item = Item.lookup(itemName).get();
+            if (tag.test(item)) {
+                return Optional.of(item);
+            }
+        }
+        return Optional.empty();
+    }
+
+    public boolean matchesRecipe(@NotNull final RecipeLike recipe) {
+        return recipe.matchWithInventory(this).isPresent();
+    }
+
+    public boolean subtractRecipe(@NotNull final RecipeLike recipe) {
+        final var input = recipe.matchWithInventory(this);
+        if (input.isEmpty()) {
+            return false;
+        }
+        if (!subtract(input.get())) {
+            // impossible
+            throw new AssertionError("We just checked this!");
+        }
+        return true;
+    }
+
+    public boolean isEmpty() {
+        return items.isEmpty();
+    }
+
+    @Override
+    public Inventory clone() {
+        final Inventory clone = new Inventory();
+        clone.items.putAll(this.items);
+        return clone;
+    }
 }
