@@ -10,7 +10,6 @@ import org.abos.gs.core.ItemLike;
 import org.abos.gs.core.Player;
 import org.abos.gs.core.Recipe;
 import org.abos.gs.core.RecipeLike;
-import org.abos.gs.core.StuffStack;
 import org.abos.gs.core.Tag;
 import org.abos.gs.core.TagLike;
 import org.abos.gs.data.Gatchas;
@@ -19,6 +18,7 @@ import org.abos.gs.data.Recipes;
 import org.abos.gs.data.Tags;
 import org.abos.gs.gui.component.dialogue.PlayerNameDialog;
 import org.abos.gs.gui.component.pane.CraftingScreen;
+import org.abos.gs.gui.component.pane.GatchaScreen;
 import org.abos.gs.gui.component.pane.MainMenu;
 import org.jetbrains.annotations.NotNull;
 
@@ -35,6 +35,8 @@ public final class Gui extends Application {
     private final Scene mainMenuScene = new Scene(new MainMenu(this), DEFAULT_WIDTH, DEFAULT_HEIGHT);
     private final CraftingScreen craftingScreen = new CraftingScreen(this);
     private final Scene craftingScreenScene = new Scene(craftingScreen, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+    private final GatchaScreen gatchaScreen = new GatchaScreen(this);
+    private final Scene gatchaScreenScene = new Scene(gatchaScreen, DEFAULT_WIDTH, DEFAULT_HEIGHT);
     private Stage stage;
 
     private Player player;
@@ -71,6 +73,16 @@ public final class Gui extends Application {
             craftingScreen.update();
             stage.setScene(craftingScreenScene);
         }
+    }
+
+    public void switchToCrafting() {
+        craftingScreen.update();
+        stage.setScene(craftingScreenScene);
+    }
+
+    public void switchToGatcha() {
+        gatchaScreen.update();
+        stage.setScene(gatchaScreenScene);
     }
 
     public Player getPlayer() {

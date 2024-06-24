@@ -38,9 +38,12 @@ public final class CraftingScreen extends StackPane {
 
     public CraftingScreen(@NotNull final Gui gui) {
         this.gui = Objects.requireNonNull(gui);
+        final BorderPane borderPane = new BorderPane();
+        final Button gatchaBtn = new Button(this.gui.translate("gui.gatcha"));
+        gatchaBtn.setOnMouseClicked(event -> this.gui.switchToGatcha());
+        borderPane.setTop(new HBox(gatchaBtn));
         inventory = new LabelledList(this.gui.translate("gui.inventory"));
         craftingInv = new LabelledList(this.gui.translate("gui.craft_inv"));
-        final BorderPane borderPane = new BorderPane();
         final Button toCraft = new Button(">>");
         toCraft.setOnMouseClicked(event -> moveSelectedRight());
         final Button toInv = new Button("<<");
