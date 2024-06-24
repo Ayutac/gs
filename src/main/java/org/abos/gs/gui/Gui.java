@@ -10,6 +10,7 @@ import org.abos.gs.core.ItemLike;
 import org.abos.gs.core.Player;
 import org.abos.gs.core.Recipe;
 import org.abos.gs.core.RecipeLike;
+import org.abos.gs.core.StuffStack;
 import org.abos.gs.core.Tag;
 import org.abos.gs.core.TagLike;
 import org.abos.gs.data.Gatchas;
