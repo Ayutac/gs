@@ -28,9 +28,12 @@ import java.util.ResourceBundle;
 
 public final class Gui extends Application {
 
-    private final Scene mainMenuScene = new Scene(new MainMenu(this), 640, 480);
+    private static final int DEFAULT_WIDTH = 640;
+    private static final int DEFAULT_HEIGHT = 480;
+
+    private final Scene mainMenuScene = new Scene(new MainMenu(this), DEFAULT_WIDTH, DEFAULT_HEIGHT);
     private final CraftingScreen craftingScreen = new CraftingScreen(this);
-    private final Scene craftingScreenScene = new Scene(craftingScreen, 640, 480);
+    private final Scene craftingScreenScene = new Scene(craftingScreen, DEFAULT_WIDTH, DEFAULT_HEIGHT);
     private Stage stage;
 
     private Player player;
