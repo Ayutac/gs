@@ -48,9 +48,29 @@ public interface Recipes {
             List.of(new StuffStack(Items.DRIED_SINEW)),
             List.of(new StuffStack(Tags.BOARDS)),
             5);
+    RecipeLike FIRE_FROM_MEDIUM_CAMPFIRE = new Recipe("fire_from_medium_campfire",
+            List.of(new StuffStack(Items.MEDIUM_CAMPFIRE), new StuffStack(Tags.TINDER, 4)),
+            List.of(new StuffStack(Items.FIRE, 3), new StuffStack(Items.BIG_STONE, 8), new StuffStack(Items.ASH, 5)),
+            List.of(new StuffStack(Items.BOW_DRILL)),
+            8);
+    RecipeLike FIRE_FROM_SMALL_CAMPFIRE = new Recipe("fire_from_small_campfire",
+            List.of(new StuffStack(Items.SMALL_CAMPFIRE), new StuffStack(Tags.TINDER, 2)),
+            List.of(new StuffStack(Items.FIRE), new StuffStack(Items.SMALL_STONE, 8), new StuffStack(Items.ASH, 2)),
+            List.of(new StuffStack(Items.BOW_DRILL)),
+            4);
+    RecipeLike MEDIUM_CAMPFIRE = new Recipe("medium_campfire",
+            List.of(new StuffStack(Items.BIG_STONE, 8), new StuffStack(Tags.STICKS, 12), new StuffStack(Items.BRANCH, 6), new StuffStack(Tags.LOGS, 3)),
+            List.of(new StuffStack(Items.MEDIUM_CAMPFIRE)),
+            List.of(),
+            4);
     RecipeLike PLANT_ROPE = new Recipe("plant_rope",
             List.of(new StuffStack(Items.LONG_GRASS_BLADE, 5)),
             List.of(new StuffStack(Items.PLANT_ROPE)),
+            List.of(),
+            3);
+    RecipeLike SMALL_CAMPFIRE = new Recipe("small_campfire",
+            List.of(new StuffStack(Items.SMALL_STONE, 8), new StuffStack(Tags.STICKS, 6), new StuffStack(Items.BRANCH, 2)),
+            List.of(new StuffStack(Items.SMALL_CAMPFIRE)),
             List.of(),
             3);
     RecipeLike SMALL_SHARP_STONE = new Recipe("small_sharp_stone",

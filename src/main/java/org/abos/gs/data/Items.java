@@ -6,6 +6,7 @@ import org.abos.gs.core.ItemLike;
 public interface Items {
     // the alphabetical order here is merely for convenience
     ItemLike ACORN = new Item("acorn", 5);
+    ItemLike ASH = new Item("ash", 11);
     ItemLike BARK = new Item("bark", 3);
     ItemLike BIG_SHARP_STONE = new Item("big_sharp_stone", 2);
     ItemLike BIG_STONE = new Item("big_stone", 1);
@@ -35,6 +36,7 @@ public interface Items {
     ItemLike LEAF = new Item("leaf", 0);
     ItemLike LIONS_MANE = new Item("lions_mane", 5);
     ItemLike LONG_GRASS_BLADE = new Item("long_grass_blade", 1);
+    ItemLike MEDIUM_CAMPFIRE = new Item("medium_campfire", 9);
     ItemLike MOREL = new Item("morel", 5);
     ItemLike MOSS = new Item("moss", 3);
     ItemLike OLD_LOG = new Item("old_log", 12);
@@ -45,6 +47,7 @@ public interface Items {
     ItemLike ROWANBERRY = new Item("rowanberry", 4);
     ItemLike SHARP_STICK = new Item("sharp_stick", 1);
     ItemLike SINEW = new Item("sinew", 12);
+    ItemLike SMALL_CAMPFIRE = new Item("small_campfire", 7);
     ItemLike SMALL_SHARP_STONE = new Item("small_sharp_stone", 1);
     ItemLike SMALL_STONE = new Item("small_stone", 0);
     ItemLike STICK = new Item("stick", 0);
