@@ -18,6 +18,21 @@ public interface Recipes {
             List.of(new StuffStack(Items.BOW_DRILL)),
             List.of(),
             2);
+    RecipeLike COOKED_VENISON = new Recipe("cooked_venison",
+            List.of(new StuffStack(Items.RAW_VENISON), new StuffStack(Items.FIRE)),
+            List.of(new StuffStack(Items.COOKED_VENISON)),
+            List.of(new StuffStack(Items.BRANCH)),
+            8);
+    RecipeLike DEER_BUTCHER = new Recipe("deer_butcher",
+            List.of(new StuffStack(Items.DEER_CARCASS)),
+            List.of(new StuffStack(Items.RAW_VENISON, 3), new StuffStack(Items.DEER_HIDE), new StuffStack(Items.BONE, 5), new StuffStack(Items.DEER_SKULL), new StuffStack(Items.SINEW, 8), new StuffStack(Items.HOOF, 4)),
+            List.of(new StuffStack(Tags.KNIFES), new StuffStack(Tags.AXES)),
+            15);
+    RecipeLike DEER_SNARE = new Recipe("deer_snare",
+            List.of(new StuffStack(Tags.ROPES), new StuffStack(Items.STICK, 2)),
+            List.of(new StuffStack(Items.DEER_SNARE)),
+            List.of(new StuffStack(Tags.KNIFES)),
+            1);
     RecipeLike DRIED_LEAF = new Recipe("dried_leaf",
             List.of(new StuffStack(Items.LEAF)),
             List.of(new StuffStack(Items.DRIED_LEAF)),
@@ -28,6 +43,11 @@ public interface Recipes {
             List.of(new StuffStack(Items.DRIED_MOSS)),
             List.of(new StuffStack(Tags.BOARDS)),
             8);
+    RecipeLike DRIED_SINEW = new Recipe("dried_sinew",
+            List.of(new StuffStack(Items.SINEW)),
+            List.of(new StuffStack(Items.DRIED_SINEW)),
+            List.of(new StuffStack(Tags.BOARDS)),
+            5);
     RecipeLike PLANT_ROPE = new Recipe("plant_rope",
             List.of(new StuffStack(Items.LONG_GRASS_BLADE, 5)),
             List.of(new StuffStack(Items.PLANT_ROPE)),

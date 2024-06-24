@@ -63,4 +63,14 @@ public interface Gatchas {
                     new DistributionEntry(new StuffStack(Items.BIG_SHARP_STONE), 2),
                     new DistributionEntry(new StuffStack(Items.STONE_AXE, 0), 1)
                 ), 1)));
+
+    GatchaLike FOREST_DEER = new Gatcha("forest_deer",
+            List.of(new StuffStack(Items.DEER_SNARE)),
+            List.of(new Distribution(List.of(
+                    new DistributionEntry(new StuffStack(Items.DEER_CARCASS), 6),
+                    new DistributionEntry(new StuffStack(Items.DEER_CARCASS, 0), 4)
+                ), 1), new Distribution(List.of(
+                    new DistributionEntry(new StuffStack(Items.DEER_SNARE), 6),
+                    new DistributionEntry(new StuffStack(Items.STICK), 4)
+                ), 1)));
 }
