@@ -1,4 +1,4 @@
-package org.abos.gs.gui.component.dialogue;
+package org.abos.gs.gui.component.dialog;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

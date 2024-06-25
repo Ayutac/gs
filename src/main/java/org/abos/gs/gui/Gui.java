@@ -16,7 +16,7 @@ import org.abos.gs.data.Gatchas;
 import org.abos.gs.data.Items;
 import org.abos.gs.data.Recipes;
 import org.abos.gs.data.Tags;
-import org.abos.gs.gui.component.dialogue.PlayerNameDialog;
+import org.abos.gs.gui.component.dialog.PlayerNameDialog;
 import org.abos.gs.gui.component.pane.CraftingScreen;
 import org.abos.gs.gui.component.pane.GatchaScreen;
 import org.abos.gs.gui.component.pane.MainMenu;
