@@ -13,20 +13,16 @@ import org.abos.gs.core.Stuff;
 import org.abos.gs.core.StuffStack;
 import org.abos.gs.gui.Gui;
 import org.abos.gs.gui.component.LabelledList;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 public final class CraftingScreen extends StackPane {
-
-    private static final Logger LOGGER = LogManager.getLogger(CraftingScreen.class);
 
     private final Gui gui;
 
@@ -71,14 +67,14 @@ public final class CraftingScreen extends StackPane {
                     .collect(Collectors.toMap(
                             stack -> stack.getTranslation(gui.getResourceBundle()),
                             StuffStack::stuff));
-            final List<String> invContent = new LinkedList<>(invContentMap.keySet());
+            final List<String> invContent = new ArrayList<>(invContentMap.keySet());
             Collections.sort(invContent);
             inventory.getListView().setItems(FXCollections.observableList(invContent));
             craftInvContentMap = player.getCraftingInv().viewContent().stream()
                     .collect(Collectors.toMap(
                             stack -> stack.getTranslation(gui.getResourceBundle()),
                             StuffStack::stuff));
-            final List<String> craftInvContent = new LinkedList<>(craftInvContentMap.keySet());
+            final List<String> craftInvContent = new ArrayList<>(craftInvContentMap.keySet());
             Collections.sort(craftInvContent);
             craftingInv.getListView().setItems(FXCollections.observableList(craftInvContent));
         }

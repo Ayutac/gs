@@ -41,10 +41,7 @@ public final class Gui extends Application {
 
     private Player player;
 
-    @Override
-    public void start(Stage stage) {
-        this.stage = stage;
-        this.stage.setScene(mainMenuScene);
+    static {
         // TODO register not the default stuff
         try {
             for (final Field field : Items.class.getFields()) {
@@ -62,6 +59,12 @@ public final class Gui extends Application {
         } catch (IllegalAccessException ex) {
             throw new IllegalStateException(ex);
         }
+    }
+
+    @Override
+    public void start(Stage stage) {
+        this.stage = stage;
+        this.stage.setScene(mainMenuScene);
         this.stage.show();
     }
 

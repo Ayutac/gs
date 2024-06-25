@@ -2,6 +2,7 @@ package org.abos.gs.core;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -94,5 +95,13 @@ public final class Gatcha implements GatchaLike {
             return  Optional.empty();
         }
         return Optional.of(result);
+    }
+
+    /**
+     * Returns all available gatchas.
+     * @return a mutable, unsorted list of gatchas not backed by the registry, not {@code null} or containing {@code null}
+     */
+    public static List<GatchaLike> getAll() {
+        return new ArrayList<>(REGISTRY.values());
     }
 }

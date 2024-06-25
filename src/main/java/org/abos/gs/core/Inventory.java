@@ -68,7 +68,7 @@ public class Inventory implements Serializable, Cloneable {
         return Optional.of(diffMap);
     }
 
-    public boolean subtract(@NotNull final Iterable<StuffStack> stacks) {
+    public boolean subtractAll(@NotNull final Iterable<StuffStack> stacks) {
         final var canSubtract = canSubtract(stacks);
         if (canSubtract.isEmpty()) {
             return false;
@@ -90,7 +90,7 @@ public class Inventory implements Serializable, Cloneable {
     }
 
     public boolean subtract(@NotNull final StuffStack stack) {
-        return subtract(List.of(stack));
+        return subtractAll(List.of(stack));
     }
 
     public @NotNull Optional<ItemLike> matchTag(@NotNull final TagLike tag) {
@@ -112,7 +112,7 @@ public class Inventory implements Serializable, Cloneable {
         if (input.isEmpty()) {
             return false;
         }
-        if (!subtract(input.get())) {
+        if (!subtractAll(input.get())) {
             // impossible
             throw new AssertionError("We just checked this!");
         }
