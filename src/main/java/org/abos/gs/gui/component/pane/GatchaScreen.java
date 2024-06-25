@@ -15,8 +15,6 @@ import org.abos.gs.core.Player;
 import org.abos.gs.core.StuffStack;
 import org.abos.gs.gui.Gui;
 import org.abos.gs.gui.component.LabelledList;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
