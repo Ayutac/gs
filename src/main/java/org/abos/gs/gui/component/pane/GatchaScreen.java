@@ -30,8 +30,6 @@ import java.util.stream.Collectors;
 
 public final class GatchaScreen extends StackPane {
 
-    private static final Logger LOGGER = LogManager.getLogger(GatchaScreen.class);
-
     private final Gui gui;
 
     private final ComboBox<String> comboBox;
@@ -84,6 +82,7 @@ public final class GatchaScreen extends StackPane {
         final Player player = gui.getPlayer();
         final String selection = comboBox.getSelectionModel().getSelectedItem();
         if (player == null || selection == null) {
+            draw.getListView().setItems(FXCollections.emptyObservableList());
             return;
         }
         final GatchaLike selectedGatcha = gatchaContentMap.get(selection);
@@ -94,9 +93,9 @@ public final class GatchaScreen extends StackPane {
             ));
             player.getInventory().addAll(result);
         }
+        else {
+            draw.getListView().setItems(FXCollections.emptyObservableList());
+        }
     }
 
-    public void update() {
-        // TODO needed?
-    }
 }

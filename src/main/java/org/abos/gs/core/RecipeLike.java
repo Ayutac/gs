@@ -25,6 +25,7 @@ public interface RecipeLike extends Named {
      * @return an immutable, simplified view of the outputs, not {@code null}
      */
     // TODO don't allow tags in here
+    // TODO always at least 1 item
     @NotNull Set<StuffStack> getOutput();
 
     /**

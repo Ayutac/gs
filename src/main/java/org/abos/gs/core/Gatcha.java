@@ -89,7 +89,7 @@ public final class Gatcha implements GatchaLike {
      * @param name the name to look for, not {@code null}
      * @return an {@link Optional} containing the gatcha if it had been registered before, else empty
      */
-    public static Optional<GatchaLike> lookup(@NotNull final String name) {
+    public static @NotNull Optional<GatchaLike> lookup(@NotNull final String name) {
         final GatchaLike result = REGISTRY.get(Objects.requireNonNull(name));
         if (result == null) {
             return  Optional.empty();
@@ -101,7 +101,7 @@ public final class Gatcha implements GatchaLike {
      * Returns all available gatchas.
      * @return a mutable, unsorted list of gatchas not backed by the registry, not {@code null} or containing {@code null}
      */
-    public static List<GatchaLike> getAll() {
+    public static @NotNull List<GatchaLike> getAll() {
         return new ArrayList<>(REGISTRY.values());
     }
 }

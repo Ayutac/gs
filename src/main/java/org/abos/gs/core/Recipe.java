@@ -3,6 +3,7 @@ package org.abos.gs.core;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Range;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -133,11 +134,19 @@ public final class Recipe implements RecipeLike {
      * @param name the name to look for, not {@code null}
      * @return an {@link Optional} containing the recipe if it had been registered before, else empty
      */
-    public static Optional<RecipeLike> lookup(@NotNull final String name) {
+    public static @NotNull Optional<RecipeLike> lookup(@NotNull final String name) {
         final RecipeLike result = REGISTRY.get(Objects.requireNonNull(name));
         if (result == null) {
             return  Optional.empty();
         }
         return Optional.of(result);
+    }
+
+    /**
+     * Returns all available recipes.
+     * @return a mutable, unsorted list of gatchas not backed by the registry, not {@code null} or containing {@code null}
+     */
+    public static @NotNull List<RecipeLike> getAll() {
+        return new ArrayList<>(REGISTRY.values());
     }
 }

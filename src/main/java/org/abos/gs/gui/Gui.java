@@ -84,7 +84,6 @@ public final class Gui extends Application {
     }
 
     public void switchToGatcha() {
-        gatchaScreen.update();
         stage.setScene(gatchaScreenScene);
     }
 
@@ -98,6 +97,10 @@ public final class Gui extends Application {
 
     public String translate(@NotNull final String key) {
         return getResourceBundle().getString(key);
+    }
+
+    public static void main(String[] args) {
+        launch();
     }
 
 }
