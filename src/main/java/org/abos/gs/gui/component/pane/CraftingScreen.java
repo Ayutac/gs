@@ -92,7 +92,15 @@ public final class CraftingScreen extends StackPane {
                     ));
             final List<String> invContent = new ArrayList<>(invContentMap.keySet());
             Collections.sort(invContent);
+            int oldSelection = inventory.getListView().getSelectionModel().getSelectedIndex();
             inventory.getListView().setItems(FXCollections.observableList(invContent));
+            if (oldSelection >= 0) {
+                if (invContent.size() > oldSelection) {
+                    inventory.getListView().getSelectionModel().select(oldSelection);
+                } else {
+                    inventory.getListView().getSelectionModel().select(invContent.size() - 1);
+                }
+            }
             // same for the crafting inventory
             craftInvContentMap = player.getCraftingInv().viewContent().stream()
                     .collect(Collectors.toMap(
@@ -101,7 +109,15 @@ public final class CraftingScreen extends StackPane {
                     ));
             final List<String> craftInvContent = new ArrayList<>(craftInvContentMap.keySet());
             Collections.sort(craftInvContent);
+            oldSelection = craftingInv.getListView().getSelectionModel().getSelectedIndex();
             craftingInv.getListView().setItems(FXCollections.observableList(craftInvContent));
+            if (oldSelection >= 0) {
+                if (craftInvContent.size() > oldSelection) {
+                    craftingInv.getListView().getSelectionModel().select(oldSelection);
+                } else {
+                    craftingInv.getListView().getSelectionModel().select(craftInvContent.size() - 1);
+                }
+            }
             // similar for the result box
             recipeContentMap = player.matchingRecipes().stream()
                     .collect(Collectors.toMap(
