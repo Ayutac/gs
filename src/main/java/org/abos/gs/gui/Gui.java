@@ -2,6 +2,7 @@ package org.abos.gs.gui;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.abos.gs.core.Gatcha;
 import org.abos.gs.core.GatchaLike;
@@ -22,6 +23,8 @@ import org.abos.gs.gui.component.pane.GatchaScreen;
 import org.abos.gs.gui.component.pane.MainMenu;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.Locale;
 import java.util.Optional;
@@ -75,6 +78,39 @@ public final class Gui extends Application {
             player = new Player(result.get());
             craftingScreen.update();
             stage.setScene(craftingScreenScene);
+        }
+    }
+
+    public void saveGame() {
+        if (player == null) {
+            return;
+        }
+        final FileChooser chooser = new FileChooser();
+        final File location = chooser.showSaveDialog(stage);
+        if (location == null) {
+            return;
+        }
+        try {
+            player.saveTo(location.toPath());
+        } catch (final IOException ex) {
+            // TODO notify the user
+        }
+    }
+
+    public void loadGame() {
+        final FileChooser chooser = new FileChooser();
+        final File location = chooser.showOpenDialog(stage);
+        if (location == null) {
+            return;
+        }
+        try {
+            player = Player.loadFrom(location.toPath());
+            craftingScreen.update();
+            stage.setScene(craftingScreenScene);
+        } catch (final IOException ex) {
+            // TODO notify the user
+        } catch (ClassNotFoundException e) {
+            // TODO shouldn't happen
         }
     }
 

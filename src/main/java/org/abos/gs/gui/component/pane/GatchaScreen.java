@@ -34,8 +34,8 @@ public final class GatchaScreen extends StackPane {
     private final LabelledList offerings;
     private final LabelledList draw;
 
-    private Random random = new Random();
-    private Map<String, GatchaLike> gatchaContentMap;
+    private final Random random = new Random();
+    private final Map<String, GatchaLike> gatchaContentMap;
 
     public GatchaScreen(@NotNull final Gui gui) {
         this.gui = Objects.requireNonNull(gui);
@@ -47,7 +47,11 @@ public final class GatchaScreen extends StackPane {
         final BorderPane borderPane = new BorderPane();
         final Button craftingBtn = new Button(this.gui.translate("gui.crafting"));
         craftingBtn.setOnMouseClicked(event -> this.gui.switchToCrafting());
-        borderPane.setTop(new HBox(craftingBtn));
+        final Button saveBtn = new Button(this.gui.translate("gui.save_game"));
+        saveBtn.setOnMouseClicked(event -> this.gui.saveGame());
+        final Button loadBtn = new Button(this.gui.translate("gui.load_game"));
+        loadBtn.setOnMouseClicked(event -> this.gui.loadGame());
+        borderPane.setTop(new HBox(craftingBtn, saveBtn, loadBtn));
         final Label cbLabel = new Label(this.gui.translate("gui.gatcha_selection"));
         comboBox = new ComboBox<>(FXCollections.observableList(gatchaContent));
         comboBox.setOnAction(event -> gatchaSelected());
