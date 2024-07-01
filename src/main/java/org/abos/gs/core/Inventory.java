@@ -1,6 +1,7 @@
 package org.abos.gs.core;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Range;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -31,6 +32,15 @@ public class Inventory implements Serializable, Cloneable {
             result.add(new StuffStack(Item.lookup(entry.getKey()).get(), entry.getValue()));
         }
         return result;
+    }
+
+    /**
+     * Returns the amount of the given item in this inventory.
+     * @param item the item to check, not {@code null}
+     * @return the amount, non-negative
+     */
+    public @Range(from = 0, to = Integer.MAX_VALUE) int count(final @NotNull ItemLike item) {
+        return items.getOrDefault(item.getName(), 0);
     }
 
     /**

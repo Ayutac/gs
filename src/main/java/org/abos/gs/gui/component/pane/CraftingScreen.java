@@ -7,13 +7,14 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import org.abos.gs.core.ItemLike;
 import org.abos.gs.core.Player;
 import org.abos.gs.core.RecipeLike;
-import org.abos.gs.core.Stuff;
 import org.abos.gs.core.StuffStack;
 import org.abos.gs.gui.Gui;
 import org.abos.gs.gui.component.LabelledList;
@@ -34,8 +35,8 @@ public final class CraftingScreen extends StackPane {
     private final LabelledList craftingInv;
     private final ComboBox<String> resultBox;
 
-    private Map<String, Stuff> invContentMap;
-    private Map<String, Stuff> craftInvContentMap;
+    private Map<String, ItemLike> invContentMap;
+    private Map<String, ItemLike> craftInvContentMap;
     private Map<String, RecipeLike> recipeContentMap;
 
     public CraftingScreen(@NotNull final Gui gui) {
@@ -51,9 +52,9 @@ public final class CraftingScreen extends StackPane {
         inventory = new LabelledList(this.gui.translate("gui.inventory"));
         craftingInv = new LabelledList(this.gui.translate("gui.craft_inv"));
         final Button toCraft = new Button(">>");
-        toCraft.setOnMouseClicked(event -> moveSelectedRight());
+        toCraft.setOnMouseClicked(event -> moveSelectedRight(event.getButton()));
         final Button toInv = new Button("<<");
-        toInv.setOnMouseClicked(event -> moveSelectedLeft());
+        toInv.setOnMouseClicked(event -> moveSelectedLeft(event.getButton()));
         final VBox arrows = new VBox(toCraft, toInv);
         arrows.setAlignment(Pos.CENTER);
         final HBox main = new HBox(inventory, arrows, craftingInv);
@@ -86,9 +87,10 @@ public final class CraftingScreen extends StackPane {
         else {
             // we need these maps because no one else remembers translation -> original
             invContentMap = player.getInventory().viewContent().stream()
+                    .filter(stack -> stack.stuff() instanceof ItemLike)
                     .collect(Collectors.toMap(
                             stack -> stack.getTranslation(gui.getResourceBundle()),
-                            StuffStack::stuff
+                            stack -> (ItemLike)stack.stuff()
                     ));
             final List<String> invContent = new ArrayList<>(invContentMap.keySet());
             Collections.sort(invContent);
@@ -103,9 +105,10 @@ public final class CraftingScreen extends StackPane {
             }
             // same for the crafting inventory
             craftInvContentMap = player.getCraftingInv().viewContent().stream()
+                    .filter(stack -> stack.stuff() instanceof ItemLike)
                     .collect(Collectors.toMap(
                             stack -> stack.getTranslation(gui.getResourceBundle()),
-                            StuffStack::stuff
+                            stack -> (ItemLike)stack.stuff()
                     ));
             final List<String> craftInvContent = new ArrayList<>(craftInvContentMap.keySet());
             Collections.sort(craftInvContent);
@@ -130,26 +133,54 @@ public final class CraftingScreen extends StackPane {
         }
     }
 
-    public void moveSelectedRight() {
+    public void moveSelectedRight(final MouseButton btn) {
         final String selection = inventory.getListView().getSelectionModel().getSelectedItem();
         if (selection == null) {
             return;
         }
-        final StuffStack selectedStuff = new StuffStack(invContentMap.get(selection));
-        if (gui.getPlayer().getInventory().subtract(selectedStuff)) {
-            gui.getPlayer().getCraftingInv().add(selectedStuff);
+        final ItemLike selectedItem = invContentMap.get(selection);
+        int count;
+        if (btn == MouseButton.PRIMARY) {
+            count = 1;
+        }
+        else if (btn == MouseButton.SECONDARY) {
+            count = gui.getPlayer().getInventory().count(selectedItem);
+        }
+        else if (btn == MouseButton.MIDDLE) {
+            count = Math.min(10, gui.getPlayer().getInventory().count(selectedItem));
+        }
+        else {
+            return;
+        }
+        final StuffStack selectedStuffStack = new StuffStack(selectedItem, count);
+        if (gui.getPlayer().getInventory().subtract(selectedStuffStack)) {
+            gui.getPlayer().getCraftingInv().add(selectedStuffStack);
             update();
         }
     }
 
-    public void moveSelectedLeft() {
+    public void moveSelectedLeft(final MouseButton btn) {
         final String selection = craftingInv.getListView().getSelectionModel().getSelectedItem();
         if (selection == null) {
             return;
         }
-        final StuffStack selectedStuff = new StuffStack(craftInvContentMap.get(selection));
-        if (gui.getPlayer().getCraftingInv().subtract(selectedStuff)) {
-            gui.getPlayer().getInventory().add(selectedStuff);
+        final ItemLike selectedItem = craftInvContentMap.get(selection);
+        int count;
+        if (btn == MouseButton.PRIMARY) {
+            count = 1;
+        }
+        else if (btn == MouseButton.SECONDARY) {
+            count = gui.getPlayer().getCraftingInv().count(selectedItem);
+        }
+        else if (btn == MouseButton.MIDDLE) {
+            count = Math.min(10, gui.getPlayer().getCraftingInv().count(selectedItem));
+        }
+        else {
+            return;
+        }
+        final StuffStack selectedStuffStack = new StuffStack(selectedItem, count);
+        if (gui.getPlayer().getCraftingInv().subtract(selectedStuffStack)) {
+            gui.getPlayer().getInventory().add(selectedStuffStack);
             update();
         }
     }
