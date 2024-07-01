@@ -18,6 +18,8 @@ public interface Items {
     ItemLike CHANTERELLE = new Item("chanterelle", 5);
     ItemLike CHESTNUT = new Item("chestnut", 5);
     ItemLike CHICKEN_OF_THE_WOODS = new Item("chicken_of_the_woods", 5);
+    ItemLike CLAY = new Item("clay", 15);
+    ItemLike CLAY_BRICK = new Item("clay_brick", 18);
     ItemLike COOKED_VENISON = new Item("cooked_venison", 18);
     ItemLike CULTIVATED_MUSHROOM = new Item("cultivated_mushroom", 5);
     ItemLike CURRANT = new Item("currant", 4);
@@ -33,6 +35,7 @@ public interface Items {
     ItemLike FIRE = new Item("fire", 15);
     ItemLike HAZELNUT = new Item("hazelnut", 5);
     ItemLike HOOF = new Item("hoof", 12);
+    ItemLike KILN = new Item("kiln", 20);
     ItemLike LEAF = new Item("leaf", 0);
     ItemLike LIONS_MANE = new Item("lions_mane", 5);
     ItemLike LONG_GRASS_BLADE = new Item("long_grass_blade", 1);

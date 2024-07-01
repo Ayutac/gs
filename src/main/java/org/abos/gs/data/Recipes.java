@@ -23,6 +23,11 @@ public interface Recipes {
             List.of(new StuffStack(Items.COOKED_VENISON)),
             List.of(new StuffStack(Items.BRANCH)),
             8);
+    RecipeLike CLAY_BRICK = new Recipe("clay_brick",
+            List.of(new StuffStack(Items.CLAY), new StuffStack(Items.FIRE)),
+            List.of(new StuffStack(Items.CLAY_BRICK)),
+            List.of(),
+            8);
     RecipeLike DEER_BUTCHER = new Recipe("deer_butcher",
             List.of(new StuffStack(Items.DEER_CARCASS)),
             List.of(new StuffStack(Items.RAW_VENISON, 3), new StuffStack(Items.DEER_HIDE), new StuffStack(Items.BONE, 5), new StuffStack(Items.DEER_SKULL), new StuffStack(Items.SINEW, 8), new StuffStack(Items.HOOF, 4)),
@@ -58,6 +63,11 @@ public interface Recipes {
             List.of(new StuffStack(Items.FIRE), new StuffStack(Items.SMALL_STONE, 8), new StuffStack(Items.ASH, 2)),
             List.of(new StuffStack(Items.BOW_DRILL)),
             4);
+    RecipeLike KILN = new Recipe("kiln",
+            List.of(new StuffStack(Items.CLAY_BRICK, 24)),
+            List.of(new StuffStack(Items.KILN)),
+            List.of(),
+            10);
     RecipeLike MEDIUM_CAMPFIRE = new Recipe("medium_campfire",
             List.of(new StuffStack(Items.BIG_STONE, 8), new StuffStack(Tags.STICKS, 12), new StuffStack(Items.BRANCH, 6), new StuffStack(Tags.LOGS, 3)),
             List.of(new StuffStack(Items.MEDIUM_CAMPFIRE)),
