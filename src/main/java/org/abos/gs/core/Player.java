@@ -3,8 +3,14 @@ package org.abos.gs.core;
 import org.abos.common.Named;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serial;
 import java.io.Serializable;
+import java.nio.file.Path;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -48,6 +54,20 @@ public class Player implements Named, Serializable {
             }
         }
         return matches;
+    }
+
+    public void saveTo(@NotNull Path path) throws IOException {
+        try (final FileOutputStream fos = new FileOutputStream(path.toFile());
+                final ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+            oos.writeObject(this);
+        }
+    }
+
+    public static Player loadFrom(@NotNull Path path) throws IOException, ClassNotFoundException {
+        try (final FileInputStream fis = new FileInputStream(path.toFile());
+                final ObjectInputStream ois = new ObjectInputStream(fis)) {
+            return (Player)ois.readObject();
+        }
     }
 
 }
