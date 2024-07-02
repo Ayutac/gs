@@ -69,8 +69,30 @@ public interface Gatchas {
             List.of(new Distribution(List.of(
                     new DistributionEntry(new StuffStack(Items.DEER_CARCASS), 6),
                     new DistributionEntry(new StuffStack(Items.DEER_CARCASS, 0), 4)
-                ), 1), new Distribution(List.of(
+            ), 1), new Distribution(List.of(
                     new DistributionEntry(new StuffStack(Items.DEER_SNARE), 6),
                     new DistributionEntry(new StuffStack(Items.STICK), 4)
-                ), 1)));
+            ), 1)));
+
+    GatchaLike FOREST_DIG = new Gatcha("forest_dig",
+            List.of(new StuffStack(Items.STONE_SHOVEL)),
+            List.of(new Distribution(List.of(
+                    new DistributionEntry(new StuffStack(Items.DIRT), 6),
+                    new DistributionEntry(new StuffStack(Items.CLAY), 4)
+            ), 5), new Distribution(List.of(
+                    new DistributionEntry(new StuffStack(Items.BIG_STONE), 40),
+                    new DistributionEntry(new StuffStack(Items.SANDSTONE), 20),
+                    new DistributionEntry(new StuffStack(Items.DIRT), 40)
+            ), 3), new Distribution(List.of(
+                    new DistributionEntry(new StuffStack(Items.POTATO), 10),
+                    new DistributionEntry(new StuffStack(Items.CARROT), 10),
+                    new DistributionEntry(new StuffStack(Items.EARTHWORM), 20),
+                    new DistributionEntry(new StuffStack(Items.DANDELION_ROOT), 10),
+                    new DistributionEntry(new StuffStack(Items.SMALL_FOSSIL), 1),
+                    new DistributionEntry(new StuffStack(Items.DIRT), 49)
+            ), 2), new Distribution(List.of(
+                    new DistributionEntry(new StuffStack(Items.STONE_SHOVEL), 7),
+                    new DistributionEntry(new StuffStack(Items.BIG_STONE), 2),
+                    new DistributionEntry(new StuffStack(Items.STONE_SHOVEL, 0), 1)
+            ), 1)));
 }
