@@ -73,6 +73,11 @@ public interface Recipes {
             List.of(new StuffStack(Items.FIRE), new StuffStack(Items.SMALL_STONE, 8), new StuffStack(Items.ASH, 2)),
             List.of(new StuffStack(Items.BOW_DRILL)),
             4);
+    RecipeLike GNOME_HUT = new Recipe("gnome_hut",
+            List.of(new StuffStack(Tags.LOGS, 13), new StuffStack(Items.DEER_HIDE)),
+            List.of(new StuffStack(Items.GNOME_HUT)),
+            List.of(new StuffStack(Tags.AXES)),
+            8);
     RecipeLike KILN = new Recipe("kiln",
             List.of(new StuffStack(Items.CLAY_BRICK, 24)),
             List.of(new StuffStack(Items.KILN)),

@@ -95,4 +95,11 @@ public interface Gatchas {
                     new DistributionEntry(new StuffStack(Items.BIG_STONE), 2),
                     new DistributionEntry(new StuffStack(Items.STONE_SHOVEL, 0), 1)
             ), 1)));
+
+    GatchaLike FOREST_GNOME = new Gatcha("forest_gnome",
+            List.of(new StuffStack(Items.GNOME_HUT), new StuffStack(Items.COOKED_VENISON, 5)),
+            List.of(new Distribution(List.of(
+                    new DistributionEntry(new StuffStack(Items.GNOME), 9),
+                    new DistributionEntry(new StuffStack(Items.GNOME_HUT), 1)
+            ), 1)));
 }

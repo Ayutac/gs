@@ -38,6 +38,8 @@ public interface Items {
     ItemLike EARTHWORM = new Item("earthworm", 16);
     ItemLike ELDERBERRY = new Item("elderberry", 4);
     ItemLike FIRE = new Item("fire", 15);
+    ItemLike GNOME = new Item("gnome", 30);
+    ItemLike GNOME_HUT = new Item("gnome_hut", 25);
     ItemLike HAZELNUT = new Item("hazelnut", 5);
     ItemLike HOOF = new Item("hoof", 12);
     ItemLike KILN = new Item("kiln", 20);
