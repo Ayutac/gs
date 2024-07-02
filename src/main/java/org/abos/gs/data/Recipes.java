@@ -113,6 +113,11 @@ public interface Recipes {
             List.of(new StuffStack(Items.STONE_PICKAXE)),
             List.of(),
             15);
+    RecipeLike STONE_SHOVEL = new Recipe("stone_shovel",
+            List.of(new StuffStack(Items.BIG_STONE), new StuffStack(Items.WOODEN_ROD), new StuffStack(Items.LONG_GRASS_BLADE, 4)),
+            List.of(new StuffStack(Items.STONE_SHOVEL)),
+            List.of(),
+            6);
     RecipeLike STRIPPED_OLD_LOG = new Recipe("stripped_old_log",
             List.of(new StuffStack(Items.OLD_LOG)),
             List.of(new StuffStack(Items.STRIPPED_OLD_LOG), new StuffStack(Items.BARK, 4)),

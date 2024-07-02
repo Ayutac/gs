@@ -57,6 +57,7 @@ public interface Items {
     ItemLike STONE_AXE = new Item("stone_axe", 6);
     ItemLike STONE_KNIFE = new Item("stone_knife", 4);
     ItemLike STONE_PICKAXE = new Item("stone_pickaxe", 10);
+    ItemLike STONE_SHOVEL = new Item("stone_shovel", 8);
     ItemLike STRAWBERRY = new Item("strawberry", 4);
     ItemLike STRIPPED_OLD_LOG = new Item("stripped_old_log", 12);
     ItemLike STRIPPED_YOUNG_LOG = new Item("stripped_young_log", 6);
