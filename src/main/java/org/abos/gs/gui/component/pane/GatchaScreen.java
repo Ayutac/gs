@@ -1,6 +1,7 @@
 package org.abos.gs.gui.component.pane;
 
 import javafx.collections.FXCollections;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -59,6 +60,7 @@ public final class GatchaScreen extends StackPane {
         final Button drawBtn = new Button(this.gui.translate("gui.gatcha_draw"));
         drawBtn.setOnMouseClicked(event -> gatchaDraw());
         final VBox leftSide = new VBox(cbLabel, comboBox, offerings, drawBtn);
+        leftSide.setPadding(new Insets(5));
         leftSide.setAlignment(Pos.CENTER);
         draw = new LabelledList(this.gui.translate("gui.gatcha_draws"));
         final HBox main = new HBox(leftSide, draw);
