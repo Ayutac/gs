@@ -18,6 +18,16 @@ public interface Recipes {
             List.of(new StuffStack(Items.BOW_DRILL)),
             List.of(),
             2);
+    RecipeLike CARROT = new Recipe("carrot",
+            List.of(new StuffStack(Items.CARROT), new StuffStack(Items.RICH_SOIL)),
+            List.of(new StuffStack(Items.CARROT, 3)),
+            List.of(),
+            13);
+    RecipeLike COMPOSTER = new Recipe("composter",
+            List.of(new StuffStack(Tags.LOGS, 8)),
+            List.of(new StuffStack(Items.COMPOSTER)),
+            List.of(new StuffStack(Tags.AXES)),
+            6);
     RecipeLike COOKED_VENISON = new Recipe("cooked_venison",
             List.of(new StuffStack(Items.RAW_VENISON), new StuffStack(Items.FIRE)),
             List.of(new StuffStack(Items.COOKED_VENISON)),
@@ -78,6 +88,16 @@ public interface Recipes {
             List.of(new StuffStack(Items.PLANT_ROPE)),
             List.of(),
             3);
+    RecipeLike POTATO = new Recipe("potato",
+            List.of(new StuffStack(Items.POTATO), new StuffStack(Items.RICH_SOIL)),
+            List.of(new StuffStack(Items.POTATO, 3)),
+            List.of(),
+            13);
+    RecipeLike RICH_SOIL_FROM_LEAVES = new Recipe("rich_soil_from_leaves",
+            List.of(new StuffStack(Items.LEAF, 20), new StuffStack(Items.DIRT, 2)),
+            List.of(new StuffStack(Items.RICH_SOIL)),
+            List.of(new StuffStack(Items.COMPOSTER)),
+            15);
     RecipeLike SMALL_CAMPFIRE = new Recipe("small_campfire",
             List.of(new StuffStack(Items.SMALL_STONE, 8), new StuffStack(Tags.STICKS, 6), new StuffStack(Items.BRANCH, 2)),
             List.of(new StuffStack(Items.SMALL_CAMPFIRE)),

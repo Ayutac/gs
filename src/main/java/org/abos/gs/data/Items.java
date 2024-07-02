@@ -21,6 +21,7 @@ public interface Items {
     ItemLike CHICKEN_OF_THE_WOODS = new Item("chicken_of_the_woods", 5);
     ItemLike CLAY = new Item("clay", 15);
     ItemLike CLAY_BRICK = new Item("clay_brick", 18);
+    ItemLike COMPOSTER = new Item("composter", 20);
     ItemLike COOKED_VENISON = new Item("cooked_venison", 18);
     ItemLike CULTIVATED_MUSHROOM = new Item("cultivated_mushroom", 5);
     ItemLike CURRANT = new Item("currant", 4);
@@ -52,8 +53,9 @@ public interface Items {
     ItemLike POTATO = new Item("potato", 19);
     ItemLike RASPBERRY = new Item("raspberry", 4);
     ItemLike RAW_VENISON = new Item("raw_venison", 16);
+    ItemLike RICH_SOIL = new Item("rich_soil", 21);
     ItemLike ROWANBERRY = new Item("rowanberry", 4);
-    ItemLike SANDSTONE = new Item("sandstone", 1);
+    ItemLike SANDSTONE = new Item("sandstone", 12);
     ItemLike SHARP_STICK = new Item("sharp_stick", 1);
     ItemLike SINEW = new Item("sinew", 12);
     ItemLike SMALL_CAMPFIRE = new Item("small_campfire", 7);
